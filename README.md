@@ -5,8 +5,8 @@ No Galaxy modules are required.
 This playbook will help you to install Carbon Black Application Control on RHEL/CentOS.
 
 This playbook has 3 tasks: <br>
-Task-01: Create a directory called CarbonBlackApp in /opt
-Task-02: Download and Extract VMware Carbon Black App Control from Carbon Black App Control Server to the folder that was created in Task-01
+Task-01: Create a directory called CarbonBlackApp in /opt <br>
+Task-02: Download and Extract VMware Carbon Black App Control from Carbon Black App Control Server to the folder that was created in Task-01 <br>
 Task-03: Install VMware Carbon Black App Control from the directory /opt/CarbonBlackApp/
 
 Requirements:
