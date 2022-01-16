@@ -1,0 +1,30 @@
+---
+
+
+- name: Playbook to Download and Install VMware Carbon Black App Control
+  hosts: all
+  
+  tasks:
+  - name: Create a Directory called CarbonBlackApp in opt
+    become: yes
+    file:
+      path: "/opt/CarbonBlackApp"
+      state: directory
+      mode: 0755
+
+  - name : Download and Extract VMware Carbon Black App Control from Carbon Black App Control Server
+    become: yes
+    unarchive:
+      src: "https://192.168.1.9/hostpkg/pkg.php?pkg=App-Control-redhat.tgz"
+      validate_certs: no
+      dest: "/opt/CarbonBlackApp/"
+      mode: 0755
+      remote_src: yes
+
+  - name: Install VMware Carbon Black App Control
+    become: yes
+    shell:
+      "./b9install.sh -n"
+    args:
+        chdir: "/opt/CarbonBlackApp/App-Control-redhat/" 
+    register: output
