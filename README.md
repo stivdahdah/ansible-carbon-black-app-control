@@ -12,9 +12,11 @@ Task-03: Install VMware Carbon Black App Control from the directory /opt/CarbonB
 Requirements:
 - The network connection between your agent and Carbon Black App Control server should be Allowed since this playbook will fetch the installation from the CB server directly.
 
-To get the Policy Installation Package link:
-1- Login to the App Control console.
-2- Navigate to https://ServerName/hostpkg/ and copy the package link.
+To get the Policy Installation Package link: <br>
+1- Login to the App Control console. <br>
+2- Navigate to https://ServerName/hostpkg/ and copy the package link. <br>
+
+![Alt text](https://github.com/stivdahdah/ansible-carbon-black-app-control/blob/main/carbon_black_package_example.png?raw=true "Optional Title")
 
 
 **Example Playbook**
