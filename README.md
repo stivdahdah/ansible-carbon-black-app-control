@@ -20,7 +20,7 @@ Once the command line is generated copy the command line and place it in Lice-7 
 Let's say that we generated the below command from SolarWinds.
 We will have to copy the command and place it in Licne-7 as a value for "shell: " in solarwinds_agent_Installation.yml. 
 
-'''
+```
 ---
 
 - name: Playbook to Download and Install VMware Carbon Black App Control in Visibility Mode
@@ -50,4 +50,4 @@ We will have to copy the command and place it in Licne-7 as a value for "shell: 
     args:
         chdir: "/opt/CarbonBlackApp/App-Control-Visibility-redhat/" 
     register: output
-'''
+```
