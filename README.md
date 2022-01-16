@@ -1,29 +1,26 @@
-# ansible-carbon-black-app-control
-Ansible Playbook To Install VMware Carbon Black App Control on Linux
+# Ansible Playbook for VMware Carbon Black App Control
 
 No Galaxy modules are required.
 
-This playbook will help you to install SolarWinds Agent on RHEL/CentOS and Debian/Ubuntu.
+This playbook will help you to install Carbon Black Application Control on RHEL/CentOS.
 
-First, you should generate the agent installation command from SolarWinds. This command should be placed in the YAML file: 
-Please follow the below steps (You need to copy the command from Step-8):
-https://documentation.solarwinds.com/en/success_center/orionplatform/content/core-deploy-a-linux-agent-manually.htm
+This playbook has 3 tasks:
+Task-01: Create a directory called CarbonBlackApp in /opt
+Task-02: Download and Extract VMware Carbon Black App Control from Carbon Black App Control Server to the folder that was created in Task-01
+Task-03: Install VMware Carbon Black App Control from the directory /opt/CarbonBlackApp/
 
 Requirements:
-- The network connection between your agent and SolarWinds should be Allowed since this playbook will fetch the installation from the SolarWinds server directly.
+- The network connection between your agent and Carbon Black App Control server should be Allowed since this playbook will fetch the installation from the CB server directly.
 
-Note: RHEL/CentOS generated command is different from Debian/Ubuntu. I would suggest creating a playbook for each distro. 
-
-Once the command line is generated copy the command line and place it in Lice-7 after "shell: "
 
 **Example Playbook**
-Let's say that we generated the below command from SolarWinds.
-We will have to copy the command and place it in Licne-7 as a value for "shell: " in solarwinds_agent_Installation.yml. 
+
 
 ```
 ---
 
-- name: Playbook to Download and Install VMware Carbon Black App Control in Visibility Mode
+
+- name: Playbook to Download and Install VMware Carbon Black App Control
   hosts: all
   
   tasks:
@@ -37,7 +34,7 @@ We will have to copy the command and place it in Licne-7 as a value for "shell: 
   - name : Download and Extract VMware Carbon Black App Control from Carbon Black App Control Server
     become: yes
     unarchive:
-      src: "https://192.168.1.9/hostpkg/pkg.php?pkg=App-Control-Visibility-redhat.tgz"
+      src: "https://192.168.1.9/hostpkg/pkg.php?pkg=App-Control-redhat.tgz"
       validate_certs: no
       dest: "/opt/CarbonBlackApp/"
       mode: 0755
@@ -48,6 +45,6 @@ We will have to copy the command and place it in Licne-7 as a value for "shell: 
     shell:
       "./b9install.sh -n"
     args:
-        chdir: "/opt/CarbonBlackApp/App-Control-Visibility-redhat/" 
+        chdir: "/opt/CarbonBlackApp/App-Control-redhat/" 
     register: output
 ```
