@@ -16,7 +16,7 @@ To get the Policy Installation Package link: <br>
 1- Login to the App Control console. <br>
 2- Navigate to https://ServerName/hostpkg/ and copy the package link. <br>
 
-![Alt text](https://github.com/stivdahdah/ansible-carbon-black-app-control/blob/main/carbon_black_package_example.png?raw=true "Optional Title")
+![Alt text](https://github.com/stivdahdah/ansible-carbon-black-app-control/blob/main/carbon_black_package_example.png?raw=true "CB Package")
 
 
 **Example Playbook**
